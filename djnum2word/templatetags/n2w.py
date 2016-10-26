@@ -6,12 +6,12 @@ from num2word.num2word_PL import Num2Word_PL
 register = template.Library()
 
 @register.filter
-def n2w(value):
+def n2w_pl(value):
     return Num2Word_PL().to_cardinal(value)
 
 
 @register.filter
-def pl_a2w(value):
+def a2w_pl(value):
     cc = map(Num2Word_PL().to_cardinal, map(int, ("%.2f" % value).split('.')))
     if len(cc) == 2:
         zl, gr = cc
